@@ -24,6 +24,7 @@ int main(){
         if (c[i] == 0)
         {
             cout << capitalTable[i];
+            break;
         }
         else
         {
