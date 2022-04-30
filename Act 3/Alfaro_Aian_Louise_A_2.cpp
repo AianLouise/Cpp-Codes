@@ -9,7 +9,7 @@ int main(){
     char country[MAX];
     char countryTable[MAX][MAX] = {"Brunei", "Cambodia", "East Timor", "Indonesia", "Laos", "Malaysia", "Myanmar", "Philippines", "Singapore", "Thailand", "Vietnam" };
     char capitalTable[MAX][MAX] = {"Bandar Seri Begawan", "Phnom Penh", "Dili", "Jakarta", "Vientiane", "Kuala Lumpur", "Nay Pyi Daw", "Manila", "Singapore", "Bangkok", "Hanoi" };
-    int c[MAX];
+    int c[MAX], a = 0;
 
     cout << "COUNTRY NAME: " ;
     cin >> country;
@@ -19,18 +19,20 @@ int main(){
     {
         c[i] = strcmpi(country, countryTable[i]);
     }
+
     for (int i = 0; i < 11; i++)
     {
         if (c[i] == 0)
         {
             cout << capitalTable[i];
+            a++;
             break;
         }
-        else
-        {
-            cout << country << " is not South East Asian Country." ;
-            break;
-        }
+    }
+
+    if (a != 1)
+    {
+        cout << country << " is not South East Asian Country." ;
         
     }
     
