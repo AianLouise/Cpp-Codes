@@ -3,7 +3,7 @@ using namespace std;
 
 int main(){
     string team_1, team_2, winner[4];
-    int game = 4, round = 3, j = 1;
+    int game = 4, round = 3;
     int team_1_points, team_2_points;
     int team_1_score = 0, team_2_score = 0;
 
