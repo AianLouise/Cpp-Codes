@@ -1,9 +1,10 @@
 #include<iostream>
 #include<cstring>
 #include<iomanip>
-using namespace std;
+using namespace std;    
 struct EMPLOYEE{
-    int ID, loan;
+    int ID, grossPay, netPay;
+    int philhealth, hdmf, tax, loan; 
     char LN[50], FN[50], MN[50], rank[50];
 };
     
@@ -13,9 +14,12 @@ int main(){
     static int pos = 0;
     static int size = 0;
     int searchId, found;
+    char searchName[50];
 
     int min_num;
     int max_num;
+
+    int a = 0, b = 0, id[50];
 
     EMPLOYEE e[50];
     main_menu:
@@ -92,7 +96,9 @@ int main(){
                 cout << e[i].LN << setw(w);
                 cout << e[i].FN << setw(w);
                 cout << e[i].MN << setw(w);
-                cout << e[i].rank;
+                cout << e[i].rank << setw(w-3);
+                cout << e[i].grossPay << setw(w);
+                cout << e[i].netPay;
                 cout << endl;
             }
         }
@@ -144,23 +150,35 @@ int main(){
             {
                 strcpy(e[i].rank, "Instructor");
                 cout << "Instructor" << endl;
+                e[i].grossPay = 30000;
+                
             }
             else if (rank == 2)
             {
                 strcpy(e[i].rank, "Assistant Professor");
                 cout << "Assistant Professor" << endl;
+                e[i].grossPay = 50000;
+                
             }
             else if (rank == 3)
             {
                 strcpy(e[i].rank, "Associate Professor");
                 cout << "Associate Professor" << endl;
+                e[i].grossPay = 100000;
+                
             }
             else
             {
                 strcpy(e[i].rank, "Professor");
                 cout << "Professor" << endl;
+                e[i].grossPay = 200000;
+                
             }
-            cout << "\nINPUT EMPLOYEE LOAN: " ; cin >> e[i].loan    ;
+            cout << "\nINPUT EMPLOYEE LOAN: " ; cin >> e[i].loan;
+            e[i].philhealth = e[i].grossPay * 0.04;
+            e[i].tax = e[i].grossPay * 0.25;
+            e[i].hdmf = 100;
+            e[i].netPay = e[i].grossPay - (e[i].philhealth + e[i].tax + e[i].hdmf + e[i].loan);
         
         }
         cout << "============================================================================" << endl;
@@ -170,11 +188,11 @@ int main(){
         goto main_menu;
         break;
     case 3: 
-        /* code */
+       
         break;
     case 4:
         system("cls");
-        //found = 0;
+        found = 0;
         cout << "============================================================================" << endl;
         cout << "                              DELETE RECORDS" << endl;
         cout << "============================================================================" << endl;
@@ -212,19 +230,145 @@ int main(){
             }
             
         }
-        if (found == 0)
+        
+        if (found == 0 && a != 1)
             {
                 cout << "============================================================================" << endl;
-                cout << setw(15) << searchId <<" does not exist in the record" << endl;
-                cout << setw(15) << "NO RECORD HAS BEEN DELETED" << endl;
-                break;  
+                cout << "       " << searchId <<" does not exist in the record" << endl;
+                cout << "       NO RECORD HAS BEEN DELETED" << endl;
+                a = 1;
             }
 
         system("pause");
         goto main_menu;
         break;
     case 5:
-        /* code */
+        system("cls");
+        cout << "============================================================================" << endl;
+        cout << "                              SEARCH RECORDS" << endl;
+        cout << "============================================================================" << endl;
+        cout << "SEARCH USING" << endl;
+        cout << "       1 - Employee ID" << endl;
+        cout << "       2 - Last Name" << endl;
+        cout << "       3 - First Name" << endl;
+        cout << "       4 - Middle Name" << endl;
+        cout << "       5 - Employee Rank" << endl;
+        cout << "       INPUT 1-5: ";
+        cin >> select;
+        while (select < 1 || select > 5)
+        {
+            cout << "        INVALID INPUT. INPUT 1-5: "; cin >> select;  
+        }
+        if (select == 1)
+        {
+            cout << "Input EMPLOYEE ID to SEARCH: ";
+            cin >> searchId;
+        }
+        else if (select == 2)
+        {
+            cout << "Input Last Name ID to SEARCH: ";
+            cin >> searchName;
+        }
+        else if (select == 3)
+        {
+            cout << "Input First Name ID to SEARCH: ";
+            cin >> searchName;
+        }
+        else if (select == 4)
+        {
+            cout << "Input Middle Name ID to SEARCH: ";
+            cin >> searchName;
+        }
+        else
+        {
+            cout << "Input Employee Rank ID to SEARCH: ";
+            cin >> searchName;
+        }
+        
+        cout << "============================================================================================================================================================================" << endl;
+        cout << "                                                                           DISPLAY RECORDS" << endl;
+        cout << "============================================================================================================================================================================" << endl;
+
+        cout << "EMPLOYEE ID" << setw(w);
+        cout << "LAST NAME" << setw(w);
+        cout << "FIRST NAME" << setw(w);
+        cout << "MIDDLE NAME" << setw(w-5);
+        cout << "RANK" << setw(w+3);
+        cout << "GROSS SALARY" << setw(w);
+        cout << "NET SALARY" << endl;
+
+        found = 0;
+        a = 0;
+        for (int i = 0; i < max; i++)
+        {
+           if (searchId == e[i].ID || strcmpi(searchName, e[i].LN)==0 || strcmpi(searchName, e[i].FN)==0 || strcmpi(searchName, e[i].MN)==0 || strcmpi(searchName, e[i].rank)==0)
+            {
+                cout << e[i].ID << setw(w+5);
+                cout << e[i].LN << setw(w);
+                cout << e[i].FN << setw(w);
+                cout << e[i].MN << setw(w);
+                cout << e[i].rank << setw(w-3);
+                cout << e[i].grossPay ;
+                cout << endl;
+                found++;
+                id[a] = e[i].ID;
+                a++;
+            }
+        }
+        cout << "============================================================================================================================================================================" << endl;
+        cout << "                                                                                                                                            TOTAL NUMBER OF RECORDS: " << found << endl;
+        cout << "============================================================================================================================================================================" << endl;
+        
+        cout << "VIEW DETAILS?" << endl;
+        cout << "       Input 1 - YES" << endl;
+        cout << "       Input 2 - GO TO MAIN MENU" << endl;
+        cout << "       INPUT 1 or 2: ";
+            cin >> select;
+            while (select < 1 || select > 2)
+            {
+                cout << "        INVALID INPUT. INPUT (1-2): "; cin >> select;  
+            }
+        b = 0;
+        if (select == 1)
+        {
+            cout << "INPUT EMPLOYEE ID FROM THE LIST TO DISPLAY DETAILS: ";
+            cin >> searchId;
+            
+            for (int i = 0; i < a; i++)
+            {
+                if (searchId == id[i])
+                {
+                    cout << "\nEMPLOYEE DETAILS" << endl;
+                    cout << "-------------------------------------------------------------" << endl;
+                    for (int i = 0; i < max; i++)
+                    {
+                        if (searchId == e[i].ID && b != 1)
+                        {
+                            cout << "EMPLOYEE ID: " << e[i].ID << endl;
+                            cout << "EMPLOYEE NAME: " << e[i].LN << ", " << e[i].FN << " " << e[i].MN << endl;
+                            cout << "EMPLOYEE RANK: " << e[i].rank << endl; 
+                            cout << "SALARY" << endl;
+                            cout << "           GROSS PAY: " << e[i].grossPay << endl;
+                            cout << "           DEDUCTIONS: " << endl;
+                            cout << "                   Phil.Health: " << e[i].philhealth << endl;
+                            cout << "                   HDMF: " << e[i].hdmf << endl;
+                            cout << "                   TAX: " << e[i].tax << endl;
+                            cout << "                   Loan: " << e[i].loan << endl;
+                            cout << "           NET PAY: " << e[i].netPay << endl;
+                            b = 1;
+                        }
+                        
+                    }
+
+                }
+                if (searchId != id[i])
+                {
+                    cout << "   INCORRECT INPUT. INPUT EMPLOYEE ID FROM THE LIST TO DISPLAY DETAILS: "; 
+                    cin >> searchId;
+                }
+            }
+        }
+        
         break;
     case 6:
         cout<<"==========================================================\n";
