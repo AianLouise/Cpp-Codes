@@ -290,7 +290,6 @@ int main(){
                     strcpy(e[i].MN,"");
                     strcpy(e[i].rank,"");
                     found = 1;
-                    record--;
                 }
                 else if (select == 2)
                 {
