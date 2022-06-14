@@ -15,6 +15,7 @@ int main(){
     static int size = 0;
     int searchId, found;
     char searchName[50];
+    int rank;
 
     int min_num;
     int max_num;
@@ -138,7 +139,7 @@ int main(){
             cout << "        2 - Assistant Professor" << endl;
             cout << "        3 - Associate Professor" << endl;
             cout << "        4 - Professor" << endl;
-            int rank;
+            
             cout << "        INPUT EMPLOYEE RANK(1-4): " ; cin >> rank;
             
             while (rank < 1 || rank > 4)
@@ -188,7 +189,75 @@ int main(){
         goto main_menu;
         break;
     case 3: 
-       
+        system("cls");
+        cout << "============================================================================" << endl;
+        cout << "                              UPDATE RECORDS" << endl;
+        cout << "============================================================================" << endl;
+        cout << "Input EMPLOYEE ID to UPDATE: " ;
+        cin >> searchId;
+        cout << "============================================================================" << endl;
+        for (int i = 0; i < max; i++)
+        {
+           if (searchId == e[i].ID)
+            {
+                cout << "Do you want to UPDATE record of " << e[i].LN << ", " << e[i].FN << " " << e[i].MN << "?" << endl;
+                cout << "       Input 1 - YES" << endl;
+                cout << "       Input 2 - GO TO MAIN MENU" << endl;
+                cout << "Press 1 or 2: ";
+                cin >> select;
+                while (select < 1 || select > 2)
+                {
+                    cout << "        INVALID INPUT. INPUT (1-2): "; cin >> select;  
+                } 
+                if (select == 1)
+                {
+                    cout << "Choose what you want to update" << endl;
+                    cout << "1 - LAST NAME" << endl;
+                    cout << "2 - FIRST NAME" << endl;
+                    cout << "3 - MIDDLE NAME" << endl;
+                    cout << "4 - EMPLOYEE RANK" << endl;
+                    cout << "5 - LOAN" << endl;
+                    cout << "       Input 1 to 5: ";
+                    cin >> select;
+                    cin.ignore();
+                    if (select == 1)
+                    {  
+                        cout << "UPDATE LAST NAME: " ;
+                        cin.getline(e[i].LN, 50);
+                    }
+                    else if (select == 2)
+                    {
+                        cout << "UPDATE FIRST NAME: " ;
+                        cin.getline(e[i].LN, 50);
+                    }
+                    else if (select == 3)
+                    {
+                        cout << "UPDATE MIDDLE NAME: " ;
+                        cin.getline(e[i].LN, 50);
+                    }
+                    else if (select == 4)
+                    {
+                        cout << "UPDATE EMPLOYEE RANK: " ;
+                        cin.getline(e[i].LN, 50);
+                    }
+                    else
+                    {
+                        cout << "UPDATE LOAN: " ;
+                        cin.getline(e[i].LN, 50); 
+                    }
+                    cout << "============================================================================" << endl;
+                    cout << "Record of " << e[i].LN << ", " << e[i].FN << " " << e[i].MN << " has been UPDATED successfully." << endl;
+                    cout << "============================================================================\n" << endl;
+                }
+                else if (select == 2)
+                {
+                    goto main_menu;
+                }
+            }
+            
+        }
+        system("pause");
+        goto main_menu;
         break;
     case 4:
         system("cls");
@@ -266,23 +335,52 @@ int main(){
         }
         else if (select == 2)
         {
-            cout << "Input Last Name ID to SEARCH: ";
+            cout << "Input Last Name to SEARCH: ";
             cin >> searchName;
         }
         else if (select == 3)
         {
-            cout << "Input First Name ID to SEARCH: ";
+            cout << "Input First Name to SEARCH: ";
             cin >> searchName;
         }
         else if (select == 4)
         {
-            cout << "Input Middle Name ID to SEARCH: ";
+            cout << "Input Middle Name to SEARCH: ";
             cin >> searchName;
         }
         else
         {
-            cout << "Input Employee Rank ID to SEARCH: ";
-            cin >> searchName;
+            cout << "Input Employee Rank to SEARCH: ";
+            cout << "Select from 1 to 4" << endl;
+            cout << "        1 - Instructor" << endl;
+            cout << "        2 - Assistant Professor" << endl;
+            cout << "        3 - Associate Professor" << endl;
+            cout << "        4 - Professor" << endl;
+            cout << "INPUT 1-4: " ; cin >> rank;
+            while (rank < 1 || rank > 4)
+            {
+                cout << "        INVALID INPUT. INPUT EMPLOYEE RANK(1-4): "; cin >> rank;  
+            }
+            if (rank == 1)
+            {
+                strcpy(searchName, "Instructor");
+                
+            }
+            else if (rank == 2)
+            {
+                strcpy(searchName, "Assistant Professor");
+                
+            }
+            else if (rank == 3)
+            {
+                strcpy(searchName, "Associate Professor");
+                
+            }
+            else
+            {
+                strcpy(searchName, "Professor");
+                
+            }
         }
         
         cout << "============================================================================================================================================================================" << endl;
@@ -308,7 +406,8 @@ int main(){
                 cout << e[i].FN << setw(w);
                 cout << e[i].MN << setw(w);
                 cout << e[i].rank << setw(w-3);
-                cout << e[i].grossPay ;
+                cout << e[i].grossPay << setw(w);
+                cout << e[i].netPay;
                 cout << endl;
                 found++;
                 id[a] = e[i].ID;
@@ -368,6 +467,12 @@ int main(){
                 }
             }
         }
+        if (select == 2)
+        {
+            system("pause");
+            goto main_menu;
+        }
+        
         
         break;
     case 6:
@@ -375,6 +480,7 @@ int main(){
 
         cout<<"Program has been terminated.\n";
         cout<<"Press any key to exit...";
+        system("pause");
         return 0;
         break;
     default:
