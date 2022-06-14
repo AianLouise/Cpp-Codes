@@ -20,7 +20,6 @@ int main(){
     EMPLOYEE e[50];
     main_menu:
     system("cls");
-    cout << max;
     cout << "============================================================================" << endl;
     cout << "                                   MAIN MENU" << endl;
     cout << "============================================================================" << endl;
@@ -49,7 +48,7 @@ int main(){
         cout << "                                                                           DISPLAY RECORDS" << endl;
         cout << "============================================================================================================================================================================" << endl;
         
-        if (max == 0)//No Record
+        if (record == 0)//No Record
         {
             cout << "       No record to display.\n\n";
             cout << "       Do you want to add records now?" << endl;
@@ -175,13 +174,12 @@ int main(){
         break;
     case 4:
         system("cls");
-        found = 0;
+        //found = 0;
         cout << "============================================================================" << endl;
         cout << "                              DELETE RECORDS" << endl;
         cout << "============================================================================" << endl;
         cout << "Input Employee ID to delete: ";
         cin >> searchId;
-        found = 0;
         for (int i = 0; i < max; i++)
         {
             if (searchId == e[i].ID)
@@ -205,21 +203,23 @@ int main(){
                     strcpy(e[i].MN,"");
                     strcpy(e[i].rank,"");
                     found = 1;
+                    record--;
                 }
                 else if (select == 2)
                 {
                     goto main_menu;
                 }
             }
-            if (found == 0)
+            
+        }
+        if (found == 0)
             {
                 cout << "============================================================================" << endl;
                 cout << setw(15) << searchId <<" does not exist in the record" << endl;
                 cout << setw(15) << "NO RECORD HAS BEEN DELETED" << endl;
                 break;  
             }
-            
-        }
+
         system("pause");
         goto main_menu;
         break;
