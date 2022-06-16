@@ -1,7 +1,6 @@
 #include<iostream>
 #include<cstring>
 #include<iomanip>
-#include<string>
 using namespace std;
 struct EMPLOYEE{
     int ID, grossPay, netPay;
@@ -17,9 +16,9 @@ int noRecord(int total){
     cout << "               PRESS 2 - GO BACK TO MAIN MENU" << endl;
     cout << "               PRESS 3 - CLOSE PROGRAM" << endl;
     cout << "                       INPUT (1-3): "; cin >> select;
-        while (select < 1 || select > 4)
+        while (select < 1 || select > 3)
         {
-            cout << "        INVALID INPUT. INPUT (1-3): "; cin >> select;  
+            cout << "                       INVALID INPUT. INPUT (1-3): "; cin >> select;  
         }
     return select;
 }
@@ -546,9 +545,9 @@ int main(){
         cout << "============================================================================================================================================================================" << endl;
         
         cout << "VIEW DETAILS?" << endl;
-        cout << "       Input 1 - YES" << endl;
-        cout << "       Input 2 - GO TO MAIN MENU" << endl;
-        cout << "       INPUT 1 or 2: "; cin >> select;
+        cout << "       1 - YES" << endl;
+        cout << "       2 - GO TO MAIN MENU" << endl;
+        cout << "       1 or 2: "; cin >> select;
             while (select < 1 || select > 2)
             {
                 cout << "        INVALID INPUT. INPUT (1-2): "; cin >> select;  
@@ -605,7 +604,5 @@ int main(){
         break;
     default:
         break;
-    }
+    }   
 }
-
-    
