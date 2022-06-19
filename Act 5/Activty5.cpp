@@ -561,7 +561,7 @@ int main(){
                 
                 for (int i = 0; i < max; i++)
                 {
-                    if (searchId == e[i].ID && searchId == id[i])
+                    if ((searchId == e[i].ID && searchId == id[i]) || (strcmpi(searchName, e[i].FN)==0 && strcmpi(searchName, e[i].MN)==0 && strcmpi(searchName, e[i].rank)==0))
                     {
                         cout << "\n       EMPLOYEE DETAILS" << endl;
                         cout << "       -------------------------------------------------------------" << endl;
