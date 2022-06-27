@@ -1,12 +1,13 @@
 #include<iostream>
 #include<fstream>   
 #include<cstring>
+#include<iomanip>
 using namespace std;
 
 int main(){
     system("CLS");
-    int input;
-    int employee_Num, employee_BP;
+    int input, w = 20;
+    double employee_Num, employee_BP, hdmf, employee_Insur, employee_Tax, employee_CoopSavings, employee_CoopLoan, employee_totalDeduct, employee_netPay, phil_Health;
     char employee_FN[50], employee_LN[50], employee_Pos[50];  
 
     ofstream myFILE;
@@ -88,16 +89,38 @@ int main(){
                 cout << "Invalid Input. " ;
                 goto again;
             }
+        
         cout << "\n=========================================================================================================\n" << endl;
+        phil_Health = (1.2 / 100) * employee_BP;
+        hdmf = 100;
+        employee_Insur = (2.0 / 100) * employee_BP;
+        if (employee_BP < 25000)
+        {
+            employee_Tax = 0;
+        }
+        else
+        {
+            employee_Tax = (2.5 / 100) * employee_BP;
+        }
+        employee_CoopSavings = (employee_BP - (phil_Health + hdmf + employee_Insur + employee_Tax)) * (5.0 / 100);
         cout << "DEDUCTIONS:" << endl;
-        cout << "                                   Phil.Health:               " << (1.2 / 100 )* employee_BP << endl;
-        cout << "                                          HDMF:" << endl;
-        cout << "                                     Insurance:" << endl;
-        cout << "                                           TAX:" << endl;
-        cout << "                                 Coop. Savings:" << endl;
-        cout << "                              INPUT Coop. Loan:" << endl;
-            
-            
+        cout << "                                   Phil.Health:" << setw(w) << phil_Health << endl;
+        cout << "                                          HDMF:" << setw(w) << hdmf << endl;
+        cout << "                                     Insurance:" << setw(w) << employee_Insur << endl;
+        cout << "                                           TAX:" << setw(w) << employee_Tax << endl;
+        cout << "                                 Coop. Savings:" << setw(w) << employee_CoopSavings << endl;
+        cout << "                              INPUT Coop. Loan: "; cin >> employee_CoopLoan;
+        cout << "\n=========================================================================================================\n" << endl;
+        employee_totalDeduct = phil_Health + hdmf + employee_Insur + employee_Tax + employee_CoopSavings + employee_CoopLoan;
+        employee_netPay = employee_BP - employee_totalDeduct;
+        cout << "SUMMARY:" << endl;
+        cout << "                                     Basic Pay:" << setw(w) << employee_BP << endl;
+        cout << "                               Total Deduction:" << setw(w) << employee_totalDeduct << endl;
+        cout << "\n                                       NET PAY:" << setw(w) << employee_netPay << endl;
+        cout << "=========================================================================================================\n" << endl;
+        cout << "PAYSLIP for " << employee_FN << " " << employee_LN <<" has been created." << endl;
+        cout << employee_FN << " " << employee_LN <<" was included in PAYROLL file.";
+        cout << "\n=========================================================================================================\n" << endl;
             
 
         myFILE << employee_Num << endl;
