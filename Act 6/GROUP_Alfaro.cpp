@@ -9,9 +9,11 @@ int main(){
     int input, w = 20;
     double employee_Num, employee_BP, hdmf, employee_Insur, employee_Tax, employee_CoopSavings, employee_CoopLoan, employee_totalDeduct, employee_netPay, phil_Health;
     char employee_FN[50], employee_LN[50], employee_Pos[50];  
+    char search_FN[50], search_LN[50], search[50], name[50], search_Name[50];
+    int num[50];
 
-    ofstream myFILE;
-
+    fstream myFILE;
+    main:
     cout << "=========================================================================================================" << endl;
     cout << "\nCREATE PAYSLIP?" << endl;
     cout << "1 - YES" << endl;
@@ -26,7 +28,7 @@ int main(){
 	{
 	case 1:
 		system("CLS");
-		myFILE.open("GROUP_Alfaro.txt");
+		myFILE.open("GROUP_Alfaro.txt", ios::app | ios::out);
 	    cout << "This program is designed to create payslip" << endl;
 	    cout << "\n=========================================================================================================\n" << endl;
 	    cout << "INPUT EMPLOYEE NUMBER: " ; cin >> employee_Num;
@@ -117,24 +119,101 @@ int main(){
         cout << "                                     Basic Pay:" << setw(w) << employee_BP << endl;
         cout << "                               Total Deduction:" << setw(w) << employee_totalDeduct << endl;
         cout << "\n                                       NET PAY:" << setw(w) << employee_netPay << endl;
+        
+            myFILE << employee_Num << endl;
+            myFILE << employee_FN << endl;
+            myFILE << employee_LN << endl;
+            myFILE << employee_Pos << endl;
+            myFILE << phil_Health << endl;
+            myFILE << hdmf << endl;
+            myFILE << employee_Insur << endl;
+            myFILE << employee_Tax << endl;
+            myFILE << employee_CoopSavings << endl;
+            myFILE << employee_CoopLoan << endl;
+            myFILE << employee_BP << endl;
+            myFILE << employee_totalDeduct << endl;
+            myFILE << employee_netPay << endl;
+            myFILE << "!" << endl;
+        myFILE.close();
+
+        strcat(name, employee_LN);
+        strcat(name, "_");
+        strcat(name, employee_FN);
+        strcat(name, ".txt");
+        myFILE.open(name, ios::out);
+            myFILE << employee_Num << endl;
+            myFILE << employee_FN << endl;
+            myFILE << employee_LN << endl;
+            myFILE << employee_Pos << endl;
+            myFILE << phil_Health << endl;
+            myFILE << hdmf << endl;
+            myFILE << employee_Insur << endl;
+            myFILE << employee_Tax << endl;
+            myFILE << employee_CoopSavings << endl;
+            myFILE << employee_CoopLoan << endl;
+            myFILE << employee_BP << endl;
+            myFILE << employee_totalDeduct << endl;
+            myFILE << employee_netPay << endl;
+        myFILE.close();
+        strcpy(name, "");
         cout << "=========================================================================================================\n" << endl;
         cout << "PAYSLIP for " << employee_FN << " " << employee_LN <<" has been created." << endl;
         cout << employee_FN << " " << employee_LN <<" was included in PAYROLL file.";
         cout << "\n=========================================================================================================\n" << endl;
-            
-
-        myFILE << employee_Num << endl;
-        myFILE << employee_FN << endl;
-        myFILE << employee_LN << endl;
-        myFILE << employee_Pos << endl;
+        goto main;
 	    break;
 	    
 	case 2:
-	    
+	    system("CLS");
+        
+	    cout << "COMPANY PAYROLL" << endl;
+	    cout << "=========================================================================================================\n" << endl;
+        myFILE.open("GROUP_Alfaro.txt", ios::in); 
+            char DATA [100];
+            while (!myFILE.eof())
+            {
+                myFILE.getline (DATA, 100); 
+                if (strcmp (DATA, "!")==0)
+                {
+                    cout << endl;
+                }
+                else
+                {
+                    cout << DATA << "\t";
+                }
+            }
+        myFILE.close();
+        cout << endl;
+        goto main;
 	    break;
 	    
 	case 3:
-	    
+        system("CLS");
+        cin.ignore();
+	    cout << "DISPLAY PAYSLIP" << endl;
+	    cout << "=========================================================================================================\n" << endl;
+        cout << "Type Employee LAST NAME: "; cin.getline(search_LN, 100);
+        cout << "Type Employee FIRST NAME: "; cin.getline(search_FN, 100);
+        cout << "=========================================================================================================\n" << endl;
+        strcpy(search_Name, "");
+        strcat(search_Name, search_LN);
+        strcat(search_Name, "_");
+        strcat(search_Name, search_FN);
+        strcat(search_Name, ".txt");
+
+        myFILE.open(search_Name, ios::in); 
+
+        cout << search_Name;
+        while (!myFILE.eof())
+        {   
+                cout << DATA << endl;
+                myFILE.getline (DATA, 100); 
+                cout << DATA <<endl; 
+                myFILE.getline (DATA, 100); 
+                cout << DATA << endl;
+        }
+        strcpy(search_Name, "");
+        myFILE.close();
 	    break;
 	    
 	default:
