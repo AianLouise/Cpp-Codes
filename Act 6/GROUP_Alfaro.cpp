@@ -155,37 +155,45 @@ int main(){
             myFILE << employee_BP << endl;
             myFILE << employee_totalDeduct << endl;
             myFILE << employee_netPay << endl;
-            myFILE << "!" << endl;
         myFILE.close();
         strcpy(name, "");
         cout << "=========================================================================================================\n" << endl;
         cout << "PAYSLIP for " << employee_FN << " " << employee_LN <<" has been created." << endl;
         cout << employee_FN << " " << employee_LN <<" was included in PAYROLL file.";
-        cout << "\n=========================================================================================================\n" << endl;
+        cout << "\n=========================================================================================================\n\n" << endl;
         goto main;
 	    break;
 	    
 	case 2:
 	    system("CLS");
-        
-	    cout << "COMPANY PAYROLL" << endl;
-	    cout << "=========================================================================================================\n" << endl;
         myFILE.open("GROUP_Alfaro.txt", ios::in); 
+        if (myFILE == NULL)
+        {	
+        	cout << "=========================================================================================================\n\n" << endl;
+            cout << "No PAYROLL file created yet.\n\n\n" ;
+        }
+        else
+        {
+            cout << "COMPANY PAYROLL" << endl;
+            cout << "=========================================================================================================\n" << endl;
+        
+                
+                while (!myFILE.eof())
+                {
+                    myFILE.getline (DATA, 100); 
+                    if (strcmp (DATA, "!")==0)
+                    {
+                        cout << endl;
+                    }
+                    else
+                    {
+                        cout << DATA << "\t";
+                    }
+                }
             
-            while (!myFILE.eof())
-            {
-                myFILE.getline (DATA, 100); 
-                if (strcmp (DATA, "!")==0)
-                {
-                    cout << endl;
-                }
-                else
-                {
-                    cout << DATA << "\t";
-                }
-            }
+            cout << endl;
+       }
         myFILE.close();
-        cout << endl;
         goto main;
 	    break;
 	    
@@ -195,36 +203,62 @@ int main(){
         strcpy(search_Name, "");
 	    cout << "DISPLAY PAYSLIP" << endl;
 	    cout << "=========================================================================================================\n" << endl;
-        cout << "Type Employee LAST NAME: "; cin.getline(search_LN, 100);
-        cout << "Type Employee FIRST NAME: "; cin.getline(search_FN, 100);
-        cout << "=========================================================================================================\n" << endl;
-        strcpy(search_Name, "");
-        strcat(search_Name, search_LN);
-        strcat(search_Name, "_");
-        strcat(search_Name, search_FN);
-        strcat(search_Name, ".txt");
-
-        myFILE.open(search_Name, ios::in); 
-
-        cout << search_Name;
-        while (!myFILE.eof())
-            {
-                myFILE.getline (DATA, 100); 
-                if (strcmp (DATA, "!")==0)
-                {
-                    cout << endl;
-                }
-                else
-                {
-                    cout << DATA << "\t";
-                }
-            }
-        
+		cout << "Type Employee LAST NAME: "; cin.getline(search_LN, 100);
+	    cout << "Type Employee FIRST NAME: "; cin.getline(search_FN, 100);
+	    cout << "=========================================================================================================\n" << endl;
+	    strcpy(search_Name, "");
+	    strcat(search_Name, search_LN);
+	    strcat(search_Name, "_");
+	    strcat(search_Name, search_FN);
+	    strcat(search_Name, ".txt");
+			
+		myFILE.open(search_Name, ios::in); 
+	    if (myFILE == NULL)
+	    {	
+	        cout << search_Name << " does not exist.\n\n" ;
+	    }
+	    else
+	    {
+	      	while (!myFILE.eof())
+	        {
+	            myFILE.getline (DATA, 100); 
+	            cout << "EMPLOYEE NUMBER: " << DATA << endl;
+	            myFILE.getline (DATA, 100); 
+	            cout << "EMPLOYEE FIRST NAME: " << DATA  << endl;
+	            myFILE.getline (DATA, 100); 
+	            cout << "EMPLOYEE LAST NAME: " << DATA << endl;
+	            myFILE.getline (DATA, 100); 
+	            cout << "EMPLOYEE POSITION: " << DATA << endl;
+	            cout << "\nDEDUCTIONS" << endl;
+	            myFILE.getline (DATA, 100); 
+	            cout << "	PHIL.HEALTH: " << DATA << endl;
+	            myFILE.getline (DATA, 100); 
+	            cout << "	HDMF: " << DATA   << endl;
+	            myFILE.getline (DATA, 100); 
+	            cout << "	INSURANCE: " << DATA << endl;
+	            myFILE.getline (DATA, 100); 
+	            cout << "	TAX: " << DATA << endl;
+	            myFILE.getline (DATA, 100); 
+	            cout << "	COOP. SAVINGS: " << DATA << endl;
+	            myFILE.getline (DATA, 100); 
+	            cout << "	COOP LOAN: " << DATA << endl;
+	            cout << "\nnSUMMARY"  << endl;
+	            myFILE.getline (DATA, 100); 
+	            cout << "	BASIC PAY: " << DATA << endl;
+	            myFILE.getline (DATA, 100); 
+	            cout << "	TOTAL DEDUCTIONS: " << DATA << endl;
+	            myFILE.getline (DATA, 100); 
+	            cout << "	NET PAY: " << DATA << endl;
+	            break;
+	            }
+    	}
         myFILE.close();
+        goto main;
 	    break;
 	    
 	default:
-		cout << "";
+		cout << "PROGRAM HAS BEEN TERMINATED" << endl;
+		system("Pause");
 	    break;
 	}
     
