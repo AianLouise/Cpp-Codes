@@ -11,6 +11,7 @@ int main(){
     char employee_FN[50], employee_LN[50], employee_Pos[50];  
     char search_FN[50], search_LN[50], search[50], name[50], search_Name[50];
     int num[50];
+    char DATA [100];
 
     fstream myFILE;
     main:
@@ -135,7 +136,7 @@ int main(){
             myFILE << employee_netPay << endl;
             myFILE << "!" << endl;
         myFILE.close();
-
+        strcpy(name, "");
         strcat(name, employee_LN);
         strcat(name, "_");
         strcat(name, employee_FN);
@@ -154,6 +155,7 @@ int main(){
             myFILE << employee_BP << endl;
             myFILE << employee_totalDeduct << endl;
             myFILE << employee_netPay << endl;
+            myFILE << "!" << endl;
         myFILE.close();
         strcpy(name, "");
         cout << "=========================================================================================================\n" << endl;
@@ -169,7 +171,7 @@ int main(){
 	    cout << "COMPANY PAYROLL" << endl;
 	    cout << "=========================================================================================================\n" << endl;
         myFILE.open("GROUP_Alfaro.txt", ios::in); 
-            char DATA [100];
+            
             while (!myFILE.eof())
             {
                 myFILE.getline (DATA, 100); 
@@ -190,6 +192,7 @@ int main(){
 	case 3:
         system("CLS");
         cin.ignore();
+        strcpy(search_Name, "");
 	    cout << "DISPLAY PAYSLIP" << endl;
 	    cout << "=========================================================================================================\n" << endl;
         cout << "Type Employee LAST NAME: "; cin.getline(search_LN, 100);
@@ -205,14 +208,18 @@ int main(){
 
         cout << search_Name;
         while (!myFILE.eof())
-        {   
-                cout << DATA << endl;
+            {
                 myFILE.getline (DATA, 100); 
-                cout << DATA <<endl; 
-                myFILE.getline (DATA, 100); 
-                cout << DATA << endl;
-        }
-        strcpy(search_Name, "");
+                if (strcmp (DATA, "!")==0)
+                {
+                    cout << endl;
+                }
+                else
+                {
+                    cout << DATA << "\t";
+                }
+            }
+        
         myFILE.close();
 	    break;
 	    
