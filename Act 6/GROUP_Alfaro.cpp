@@ -10,7 +10,6 @@ int main(){
     double employee_Num, employee_BP, hdmf, employee_Insur, employee_Tax, employee_CoopSavings, employee_CoopLoan, employee_totalDeduct, employee_netPay, phil_Health;
     char employee_FN[50], employee_LN[50], employee_Pos[50];  
     char search_FN[50], search_LN[50], search[50], name[50], search_Name[50];
-    int num[50];
     char DATA [100];
 
     fstream myFILE;
@@ -29,7 +28,7 @@ int main(){
 	{
 	case 1:
 		system("CLS");
-		myFILE.open("GROUP_Alfaro.txt", ios::app | ios::out);
+		myFILE.open("PAYROLL.txt", ios::app | ios::out);
 	    cout << "This program is designed to create payslip" << endl;
 	    cout << "\n=========================================================================================================\n" << endl;
 	    cout << "INPUT EMPLOYEE NUMBER: " ; cin >> employee_Num;
@@ -54,12 +53,12 @@ int main(){
             }
             else if (input == 2)
             {
-                strcpy(employee_Pos, "Assitant Lvl 2");
+                strcpy(employee_Pos, "Assistant Lvl 2");
                 employee_BP = 30000;
             }
             else if (input == 3)
             {
-                strcpy(employee_Pos, "Assitant Lvl 1");
+                strcpy(employee_Pos, "Assistant Lvl 1");
                 employee_BP = 25000;
             }
             else if (input == 4)
@@ -166,7 +165,7 @@ int main(){
 	    
 	case 2:
 	    system("CLS");
-        myFILE.open("GROUP_Alfaro.txt", ios::in); 
+        myFILE.open("PAYROLL.txt", ios::in); 
         if (myFILE == NULL)
         {	
         	cout << "=========================================================================================================\n\n" << endl;
@@ -242,7 +241,7 @@ int main(){
 	            cout << "	COOP. SAVINGS: " << DATA << endl;
 	            myFILE.getline (DATA, 100); 
 	            cout << "	COOP LOAN: " << DATA << endl;
-	            cout << "\nnSUMMARY"  << endl;
+	            cout << "\nSUMMARY"  << endl;
 	            myFILE.getline (DATA, 100); 
 	            cout << "	BASIC PAY: " << DATA << endl;
 	            myFILE.getline (DATA, 100); 
