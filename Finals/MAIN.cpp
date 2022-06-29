@@ -2,6 +2,9 @@
 #include<fstream>
 #include<stdlib.h>
 #include<conio.h>
+#include<cstring>
+#include<ctime>
+#include<iomanip>
 using namespace std;
 
 int main(){
@@ -24,7 +27,6 @@ int main(){
     		system("VIEW.exe");
     		break;
     	case 3:
-    		system("cls");
     		cout << "Program will be terminated." << endl;		
     		cout << "Press any key..." << endl;
     		getch();
