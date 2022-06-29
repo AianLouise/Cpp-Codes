@@ -36,24 +36,25 @@ int main(){
 	cout << "		  P5	        Dinakdakan	    100.00"<< endl; strcpy(a[8].code, "P5"); strcpy(a[8].ulam, "Dinakdakan"); a[8].price = 100;
 	cout << "		  P6	               BBQ	    100.00"<< endl;	strcpy(a[9].code, "P6"); strcpy(a[9].ulam, "BBQ"); a[9].price = 100;
 	cout << "		  P7	            Bistek	    150.00"<< endl;	strcpy(a[10].code, "P7"); strcpy(a[10].ulam, "Bistek"); a[10].price = 150;
+	cout << "		  P8   Sweet and Sour Pork	    150.00"<< endl;	strcpy(a[11].code, "P8"); strcpy(a[11].ulam, "Sweet and Sour Pork"); a[11].price = 150;
 	cout << "\n	CHICKEN" << endl;
-	cout << "		  C1	     Fried Chicken	    80.00" << endl;	strcpy(a[11].code, "C1"); strcpy(a[11].ulam, "Fried Chicken"); a[11].price = 80;
-	cout << "		  C2		    Fillet	    80.00"     << endl;	strcpy(a[12].code, "C2"); strcpy(a[12].ulam, "Fillet"); a[12].price = 80;
-	cout << "		  C3		    Bistek	    100.00"    << endl;	strcpy(a[13].code, "C3"); strcpy(a[13].ulam, "Bistek"); a[13].price = 100;
-	cout << "		  C4	       Cordon Bleu	    120.00"<< endl; strcpy(a[14].code, "C4"); strcpy(a[14].ulam, "Cordon Bleu"); a[14].price = 120;
-	cout << "		  C5	      Honey Glazed	    120.00"<< endl; strcpy(a[15].code, "C5"); strcpy(a[15].ulam, "Honey Glazed"); a[15].price = 120;
-	cout << "		  C6	     Buffalo Wings	    150.00"<< endl; strcpy(a[16].code, "C6"); strcpy(a[16].ulam, "Buffalo Wings"); a[16].price = 150;
+	cout << "		  C1	     Fried Chicken	    80.00" << endl;	strcpy(a[12].code, "C1"); strcpy(a[12].ulam, "Fried Chicken"); a[12].price = 80;
+	cout << "		  C2		    Fillet	    80.00"     << endl;	strcpy(a[13].code, "C2"); strcpy(a[13].ulam, "Fillet"); a[13].price = 80;
+	cout << "		  C3		    Bistek	    100.00"    << endl;	strcpy(a[14].code, "C3"); strcpy(a[14].ulam, "Bistek"); a[14].price = 100;
+	cout << "		  C4	       Cordon Bleu	    120.00"<< endl; strcpy(a[15].code, "C4"); strcpy(a[15].ulam, "Cordon Bleu"); a[15].price = 120;
+	cout << "		  C5	      Honey Glazed	    120.00"<< endl; strcpy(a[16].code, "C5"); strcpy(a[16].ulam, "Honey Glazed"); a[16].price = 120;
+	cout << "		  C6	     Buffalo Wings	    150.00"<< endl; strcpy(a[17].code, "C6"); strcpy(a[17].ulam, "Buffalo Wings"); a[17].price = 150;
 	cout << "\n	VEGETABLES" << endl;
-	cout << "		  V1	      Fresh Lumpia	    80.00" << endl;	strcpy(a[17].code, "V1"); strcpy(a[17].ulam, "Fresh Lumpia"); a[17].price = 80;
-	cout << "		  V2	      Fried Lumpia	    80.00" << endl;	strcpy(a[18].code, "V2"); strcpy(a[18].ulam, "Fried Lumpia"); a[18].price = 80;
-	cout << "		  V3	          Chopsuey	    100.00"<< endl;	strcpy(a[19].code, "V3"); strcpy(a[19].ulam, "Chopsuey"); a[19].price = 100;
-	cout << "		  V4	          Ensalada	    120.00"<< endl;	strcpy(a[20].code, "V4"); strcpy(a[20].ulam, "Ensalada"); a[20].price = 120;
+	cout << "		  V1	      Fresh Lumpia	    80.00" << endl;	strcpy(a[18].code, "V1"); strcpy(a[18].ulam, "Fresh Lumpia"); a[18].price = 80;
+	cout << "		  V2	      Fried Lumpia	    80.00" << endl;	strcpy(a[19].code, "V2"); strcpy(a[19].ulam, "Fried Lumpia"); a[19].price = 80;
+	cout << "		  V3	          Chopsuey	    100.00"<< endl;	strcpy(a[20].code, "V3"); strcpy(a[20].ulam, "Chopsuey"); a[20].price = 100;
+	cout << "		  V4	          Ensalada	    120.00"<< endl;	strcpy(a[21].code, "V4"); strcpy(a[21].ulam, "Ensalada"); a[21].price = 120;
 	cout << "\n	DRINKS" << endl;
-	cout << "		  D1	           Gulaman	    50.00" << endl;	strcpy(a[21].code, "D1"); strcpy(a[21].ulam, "Gulaman"); a[21].price = 50;
-	cout << "		  D2	          Lemonade	    50.00" << endl;	strcpy(a[22].code, "D2"); strcpy(a[22].ulam, "Lemonade"); a[22].price = 50;
-	cout << "		  D3	        Buko Juice	    50.00" << endl;	strcpy(a[23].code, "D3"); strcpy(a[23].ulam, "Buko Juice"); a[23].price = 50;
-	cout << "		  D4	         Coke 1.5L	    70.00" << endl;	strcpy(a[24].code, "D4"); strcpy(a[24].ulam, "Coke 1.5L"); a[24].price = 70;
-	cout << "		  D5	       Sprite 1.5L	    70.00" << endl;	strcpy(a[25].code, "D5"); strcpy(a[25].ulam, "Sprite 1.5L"); a[25].price = 70;
+	cout << "		  D1	           Gulaman	    50.00" << endl;	strcpy(a[22].code, "D1"); strcpy(a[22].ulam, "Gulaman"); a[22].price = 50;
+	cout << "		  D2	          Lemonade	    50.00" << endl;	strcpy(a[23].code, "D2"); strcpy(a[23].ulam, "Lemonade"); a[23].price = 50;
+	cout << "		  D3	        Buko Juice	    50.00" << endl;	strcpy(a[24].code, "D3"); strcpy(a[24].ulam, "Buko Juice"); a[24].price = 50;
+	cout << "		  D4	         Coke 1.5L	    70.00" << endl;	strcpy(a[25].code, "D4"); strcpy(a[25].ulam, "Coke 1.5L"); a[25].price = 70;
+	cout << "		  D5	       Sprite 1.5L	    70.00" << endl;	strcpy(a[26].code, "D5"); strcpy(a[26].ulam, "Sprite 1.5L"); a[26].price = 70;
 
 	cout << "\nCustomer Name: "; cin.getline(name, 100);
 	cout << "Customer Address: "; cin.getline(address, 100);
@@ -67,7 +68,7 @@ int main(){
 		again:	
 		b = 0;
 		cout << "ULAM CODE: "; cin.getline(a[i].codeInput, 100);
-		for (int j = 0; j < 26; j++)
+		for (int j = 0; j < 27; j++)
 		{
 			if (strcmpi(a[i].codeInput, a[j].code)==0)
 			{
@@ -87,13 +88,13 @@ int main(){
 	cout << "CUSTOMER ADDRESS: " << address << endl;
 	cout << "CUSTOMER CONTACT NUMBER: " << contactNum << endl;
 	cout << "SUMMARY OF ORDER" << endl;
-	for (int i = 0; i < 26; i++)
+	for (int i = 0; i < 27; i++)
 	{
 		a[i].orderQuantity = 0;
 	}
 	for (int i = 0; i < numInput; i++)
 	{
-		for (int j = 0; j < 26; j++)
+		for (int j = 0; j < 27; j++)
 		{
 			if (strcmpi(a[i].codeInput, a[j].code)==0)
 			{
@@ -102,7 +103,7 @@ int main(){
 			}
 		}
 	}
-	for (int i = 0; i < 26; i++)
+	for (int i = 0; i < 27; i++)
 	{
 		if (a[i].orderQuantity > 0)
 		{
@@ -141,19 +142,20 @@ int main(){
 		cout << "DATE and TIME of ORDER: " << tm;
 		
 		myFILE.open("Order.txt", ios::app | ios::out);
-		myFILE << name << endl;
-		myFILE << address << endl;
-		myFILE << contactNum << endl;
-		for (int i = 0; i < 26; i++)
+		myFILE << "===========================================================================\n" << endl;
+		myFILE << "CUSTOMER NAME: " << name << endl;
+		myFILE << "CUSTOMER ADDRESS: " << address << endl;
+		myFILE << "CUSTOMER CONTACT NUMBER: " << contactNum << endl;
+		myFILE << "-------------------------------------------------" << endl;
+		for (int i = 0; i < 27; i++)
 		{
 			if (a[i].orderQuantity > 0)
 			{
-				myFILE << a[i].orderQuantity << " * " << a[i].price << "\t" << a[i].ulam << endl;
+				myFILE << "\t" << a[i].orderQuantity << " * " << a[i].price << "\t" << a[i].ulam << endl;
 			}
 		}
-		myFILE << amountDue << endl;
+		myFILE << "TOTAL AMOUNT DUE: " << amountDue << endl;
 		myFILE << tm ;
-		myFILE << "!" << endl;
 		myFILE.close();
 		
 		cout << "Press any key..." << endl;

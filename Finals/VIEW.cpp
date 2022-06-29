@@ -18,27 +18,34 @@ int main(){
         cout << "No saved record  for orders" << endl;
         cout << "Press any key..." << endl;
     	getch();
+    	system("CLS");
     	system("MAIN.exe");
     }
     else
     {
-        cout << "COMPANY PAYROLL" << endl;
-        cout << "=========================================================================================================\n" << endl;
-            
-            while (!myFILE.eof())
-            {
-                myFILE.getline (DATA, 100); 
-                if (strcmp (DATA, "!")==0)
-                {
-                    cout << endl;
-                }
-                else
-                {
-                    cout << DATA << "\t";
-                }
-            }
-            
-            cout << endl;
-       }
-        myFILE.close();
+    	myFILE.getline (DATA, 100); 
+    	while (!myFILE.eof())
+	    {
+	    	myFILE.getline (DATA, 100); 
+	    	cout << DATA << endl;
+		}
+    }
+    myFILE.close();
+    cout << "ALL RECORDS HAS BEEN DISPLAYED" << endl;
+    cout << "Press any key..." << endl;
+    getch();
+    system("CLS");
+	system("MAIN.exe");
 }
+
+
+
+
+
+
+
+
+
+
+
+

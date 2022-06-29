@@ -19,11 +19,11 @@ int main(){
     cout << "Input 1, 2 or 3: " ; cin >> select;
     switch (select){
     	case 1:
-    		system("cls");
+    		system("CLS");
     		system("ADD.exe");
     		break;
     	case 2:
-    		system("cls");
+    		system("CLS");
     		system("VIEW.exe");
     		break;
     	case 3:
