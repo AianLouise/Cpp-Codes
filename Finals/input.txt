@@ -1,0 +1,50 @@
+2
+
+1
+
+Allen
+#143 Purok Mapagmahal, San Juan, CSFP
+09001434444
+3
+P8
+p4
+d5
+1
+
+Donita
+#11 Mabuhay St., AC
+09090909090
+4
+c1
+D5
+C1
+c1
+
+Henry
+B11 L51, San Rafael Subd., Mexico
+09000000001
+3
+S5
+D6
+D5
+C7
+C6
+V3
+
+2
+
+4
+d5
+c6
+v3
+v1
+
+Jane
+B120 L19, Bulaon, CSFP
+09999999999
+2
+s1
+p3
+
+
+

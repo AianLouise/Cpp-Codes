@@ -29,13 +29,16 @@ int main(){
 	    	myFILE.getline (DATA, 100); 
 	    	cout << DATA << endl;
 		}
+		myFILE.close();
+		cout << "ALL RECORDS HAS BEEN DISPLAYED" << endl;
+    	cout << "Press any key..." << endl;
+    	getch();
+	    system("CLS");
+		system("MAIN.exe");
     }
-    myFILE.close();
-    cout << "ALL RECORDS HAS BEEN DISPLAYED" << endl;
-    cout << "Press any key..." << endl;
-    getch();
-    system("CLS");
-	system("MAIN.exe");
+    
+    
+  return 0;
 }
 
 

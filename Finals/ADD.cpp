@@ -61,6 +61,7 @@ int main(){
 	cout << "Customer Contact Number: "; cin.getline(contactNum, 100);
 	cout << "CUSTOMER ORDER" << endl;
 	orderAgain:
+	amountDue = 0;	
 	cout << "	How many ULAM CODES do you need to input?: "; cin >> numInput;
 	cin.ignore();
 	for (int i = 0; i < numInput; i++)
@@ -117,10 +118,33 @@ int main(){
 	cout << "		3 - CANCEL Order" << endl;
 	input:
 	cout << "		Input 1,2 or 3: " ; cin >> select;
+	time_t curr_time; curr_time = time(NULL);
+	char *tm = ctime(&curr_time);
 	switch (select){
     	case 1:
     		cout << "===============================================" << endl;
 			cout << "TOTAL AMOUNT DUE: " << amountDue << endl;
+			cout << "DATE and TIME of ORDER: " << tm;
+			myFILE.open("Order.txt", ios::app | ios::out);
+			myFILE << "===========================================================================\n" << endl;
+			myFILE << "CUSTOMER NAME: " << name << endl;
+			myFILE << "CUSTOMER ADDRESS: " << address << endl;
+			myFILE << "CUSTOMER CONTACT NUMBER: " << contactNum << endl;
+			myFILE << "-------------------------------------------------" << endl;
+			for (int i = 0; i < 27; i++)
+			{
+				if (a[i].orderQuantity > 0)
+				{
+					myFILE << "\t" << a[i].orderQuantity << " * " << a[i].price << "\t" << a[i].ulam << endl;
+				}
+			}
+			myFILE << "TOTAL AMOUNT DUE: " << amountDue << endl;
+			myFILE << tm ;
+			myFILE.close();
+			cout << "Press any key..." << endl;
+			getch();
+			system("CLS");
+			system("MAIN.exe");
     		break;
     	case 2:
     		goto orderAgain;
@@ -137,29 +161,5 @@ int main(){
     		goto input;
     		break;
 	}
-		time_t curr_time; curr_time = time(NULL);
-		char *tm = ctime(&curr_time);
-		cout << "DATE and TIME of ORDER: " << tm;
-		
-		myFILE.open("Order.txt", ios::app | ios::out);
-		myFILE << "===========================================================================\n" << endl;
-		myFILE << "CUSTOMER NAME: " << name << endl;
-		myFILE << "CUSTOMER ADDRESS: " << address << endl;
-		myFILE << "CUSTOMER CONTACT NUMBER: " << contactNum << endl;
-		myFILE << "-------------------------------------------------" << endl;
-		for (int i = 0; i < 27; i++)
-		{
-			if (a[i].orderQuantity > 0)
-			{
-				myFILE << "\t" << a[i].orderQuantity << " * " << a[i].price << "\t" << a[i].ulam << endl;
-			}
-		}
-		myFILE << "TOTAL AMOUNT DUE: " << amountDue << endl;
-		myFILE << tm ;
-		myFILE.close();
-		
-		cout << "Press any key..." << endl;
-    	getch();
-    	system("CLS");
-		system("MAIN.exe");
+		return	0;
 }

@@ -9,6 +9,7 @@ using namespace std;
 
 int main(){
     int select;
+    system("CLS");
     cout << "-=* Welcome to MAMA MIA RESTAURANT *=-\n" << endl;
     cout << "-------------------------------------------------------------------------------------" << endl;
     cout << "1 - Input Order" << endl;
@@ -27,7 +28,8 @@ int main(){
     		system("VIEW.exe");
     		break;
     	case 3:
-    		cout << "Program will be terminated." << endl;		
+    		system("CLS");
+    		cout << "Closing Time... Have a great day!" << endl;
     		cout << "Press any key..." << endl;
     		getch();
     		return 0;
@@ -37,4 +39,5 @@ int main(){
     		goto input;
     		break;
 	}
+	return 0;
 }
